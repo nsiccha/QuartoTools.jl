@@ -7,11 +7,14 @@ set_cache_path!(path::AbstractString) = (ENV["QUARTO_TOOLS_CACHE"] = path)
 # pretty_html(df) = pretty_table(df; backend = Val(:html), formatters = ft_round(2))
 using Serialization
 
-macro cached(expr::Expr, force::Bool=false)
-    cached_fn(expr, force)
-end
-macro cached(force::Bool, expr::Expr)
-    cached_fn(expr, force)
+# macro cached(expr::Expr, force::Bool=false)
+#     cached_fn(expr, force)
+# end
+# macro cached(force::Bool, expr::Expr)
+#     cached_fn(expr, force)
+# end
+macro cached(expr::Expr)
+    cached_fn(expr, false)
 end
 macro uncached(expr::Expr)
     cached_fn(expr, true)
