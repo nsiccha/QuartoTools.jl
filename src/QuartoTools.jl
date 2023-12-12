@@ -1,6 +1,6 @@
 module QuartoTools
 
-export @cached
+export @cached, @uncached
 
 set_cache_path!(path::AbstractString) = (ENV["QUARTO_TOOLS_CACHE"] = path)
 
